@@ -22,7 +22,7 @@ class RegisterController extends Controller
        $user->firstname=$request->input('firstname');
        $user->lastname=$request->input('lastname');
        $user->mobile=$request->input('mobile');
-       $user->password=$request->input('password');
+       $user->password=bcrypt($request->input('password'));
        $user->save();
         return redirect('/')->with('Status','You are registered , Wait for Admin approval before Logging in.');
       // return view('register');

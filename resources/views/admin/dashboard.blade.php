@@ -17,7 +17,7 @@
 <body>
     <!-- NavBar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Hello Admin  </a>
+            <a class="navbar-brand" href="{{ route('/') }}" >Hello Admin  </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -34,6 +34,49 @@
             </div>
           </nav>
     
+          <table class="table table-stripped">
+
+
+                <thead>
+
+                            <tr> 
+                                   <th> Users  </th>  
+                                   <th> Status  </th>  
+                                   <th> Approve  </th>     
+                            </tr>
+
+                </thead>
+
+                <tbody>
+                    @forelse($users as $user)
+                        <tr>
+
+                                <td>{{ $user->firstname }}  </td> 
+                                <td> <label for="approved"  name="approved"> <?php  if($user->approved == 1 ) { echo "Approved";}   else { echo "Not Approved"; } ?> </label> </td>
+                                <td>
+                                    
+                                        <form action="{{url('/approve-user')}}" method="POST">
+                                            {{ csrf_field() }} 
+                                        <input type="checkbox" <?php  if($user->approved == 1 ) { echo "Checked";} ?> name="approved">
+                                        <input type="hidden" name="commentId" value="{{  $user->id }}">
+                                        <input class="btn btn-primary" type="submit" value="Submit">
+                                </form>
+                                
+                                
+                                
+                                
+                                
+                                </td>
+                        </tr>
+                    @empty
+                    <h4> No data </h4>
+                    @endforelse
+                </tbody>
+
+
+
+
+    </table>
 
 
           
