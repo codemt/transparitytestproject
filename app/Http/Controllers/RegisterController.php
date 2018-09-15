@@ -17,7 +17,13 @@ class RegisterController extends Controller
        
     
         $this->validation($request);
-        User::create($request->all());
+       //return $request->all();
+       $user = new User();
+       $user->firstname=$request->input('firstname');
+       $user->lastname=$request->input('lastname');
+       $user->mobile=$request->input('mobile');
+       $user->password=$request->input('password');
+       $user->save();
         return redirect('/')->with('Status','You are registered , Wait for Admin approval before Logging in.');
       // return view('register');
 

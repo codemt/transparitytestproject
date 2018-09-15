@@ -78,6 +78,9 @@
             @endif
 
             <div class="content">
+                @if (session('Status'))
+                    <p>  {{ session('Status') }} </p>
+                @endif
                 <div class="title m-b-md">
                     Laravel
                 </div>
