@@ -14,7 +14,7 @@
        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <title>Register New User </title>
 </head>
-<body>
+<body style="background-image: url(https://www.elsa-belgium.org/wp-content/uploads/2016/09/header-background.jpg)">
     <!-- NavBar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="{{ route('/') }}">Hello User </a>
@@ -27,13 +27,10 @@
                 <li class="nav-item active">
                   <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Features</a>
-                </li>
               </ul>
             </div>
           </nav>
-    <div class="container">
+    <div class="container" style="background-color:#FFF;padding-bottom:1em;">
 
             <form method="post" action="{{ route('user/login') }}">
 
