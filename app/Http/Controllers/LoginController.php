@@ -24,14 +24,15 @@ class LoginController extends Controller
         $users = User::all();
         foreach ($users as $user) {
 
-            if($user->approved == 1 ){
+            // if($user->approved == 1 ){
 
-                if(Auth::attempt(['firstname'=>$request->firstname,'password'=>$request->password])){
+                if(Auth::attempt(['firstname'=>$request->firstname,'password'=>$request->password,'approved'=>1])){
     
                     return redirect('user/dashboard')->with('Status','You are Logged in.');
         
                 }
-            } 
+                
+            // } 
 
             if($user->approved == 0 )
             {
