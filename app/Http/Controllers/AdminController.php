@@ -24,13 +24,13 @@ class AdminController extends Controller
             'password' => 'required|max:255'
         ]);
         
-        if(Auth::attempt(['firstname'=>$request->firstname,'password'=>$request->password])){
+        if(Auth::attempt(['firstname'=>$request->firstname,'password'=>$request->password,'role'=>'admin'])){
 
             $users = User::all();
             return redirect('admin/dashboard')->with('users',$users);
 
         }
-       else return ('Something Went Wrong');
+       else return redirect('/')->with('Status','Admin not Found');
 
 
     }
